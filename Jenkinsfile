@@ -29,14 +29,14 @@ spec:
         stage('Build Backend') {
             steps {
                 container('kaniko') {
-                    sh '/kaniko/executor --context dir://${env.WORKSPACE}/apps/backend --dockerfile dir://${env.WORKSPACE}/apps/backend/Dockerfile --destination index.docker.io/${IMAGE_REPO}:backend-${BUILD_NUMBER} '
+                    sh "/kaniko/executor --context dir://${env.WORKSPACE}/apps/backend --dockerfile dir://${env.WORKSPACE}/apps/backend/Dockerfile --destination index.docker.io/${IMAGE_REPO}:backend-${BUILD_NUMBER} "
                 }
             }
         }
         stage('Build Frontend') {
             steps {
                 container('kaniko') {
-                    sh '/kaniko/executor --context dir://${env.WORKSPACE}/apps/frontend --dockerfile dir://${env.WORKSPACE}/apps/frontend/Dockerfile --destination index.docker.io/${IMAGE_REPO}:frontend-${BUILD_NUMBER} '
+                    sh "/kaniko/executor --context dir://${env.WORKSPACE}/apps/frontend --dockerfile dir://${env.WORKSPACE}/apps/frontend/Dockerfile --destination index.docker.io/${IMAGE_REPO}:frontend-${BUILD_NUMBER} "
                 }
             }
         }
