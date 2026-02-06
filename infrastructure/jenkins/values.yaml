@@ -1,0 +1,23 @@
+controller:
+  # Expose Jenkins via NodePort for local access
+  serviceType: NodePort
+  nodePort: 30000
+  
+  # Install necessary plugins
+  installPlugins:
+    - kubernetes:4264.v14d24177d6f0
+    - workflow-aggregator:596.v8c21c963d92d
+    - git:5.2.1.20240110190558
+    - configuration-as-code:1775.v810dc950b_514
+
+  # Java options
+  javaOpts: "-Djenkins.install.runSetupWizard=false"
+
+  # Admin User (Simple for local demo)
+  adminUser: "admin"
+  adminPassword: "admin_password"
+
+agent:
+  enabled: true
+  image: "jenkins/inbound-agent"
+  tag: "latest"
