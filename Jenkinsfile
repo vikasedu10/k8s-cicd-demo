@@ -43,14 +43,14 @@ spec:
         stage('Build Backend') {
             steps {
                 container('kaniko') {
-                    sh '/kaniko/executor --context dir://apps/backend --dockerfile dir://apps/backend/Dockerfile --destination localhost:5001/backend:${BUILD_NUMBER} --insecure --skip-tls-verify'
+                    sh '/kaniko/executor --context dir://${env.WORKSPACE}/apps/backend --dockerfile dir://${env.WORKSPACE}/apps/backend/Dockerfile --destination localhost:5001/backend:${BUILD_NUMBER} --insecure --skip-tls-verify'
                 }
             }
         }
         stage('Build Frontend') {
             steps {
                 container('kaniko') {
-                    sh '/kaniko/executor --context dir://apps/frontend --dockerfile dir://apps/frontend/Dockerfile --destination localhost:5001/frontend:${BUILD_NUMBER} --insecure --skip-tls-verify'
+                    sh '/kaniko/executor --context dir://${env.WORKSPACE}/apps/frontend --dockerfile dir://${env.WORKSPACE}/apps/frontend/Dockerfile --destination localhost:5001/frontend:${BUILD_NUMBER} --insecure --skip-tls-verify'
                 }
             }
         }
