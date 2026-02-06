@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: localhost:5001/backend:latest
+        image: index.docker.io/vikas1412/antigravity-applicatiions:backend-latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

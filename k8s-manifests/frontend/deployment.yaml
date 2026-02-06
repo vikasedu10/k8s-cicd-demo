@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: localhost:5001/frontend:latest
+        image: index.docker.io/vikas1412/antigravity-applicatiions:frontend-latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
